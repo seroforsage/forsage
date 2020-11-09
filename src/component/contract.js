@@ -17,7 +17,7 @@ const config = {
 
 const abiJson = [{"inputs":[{"internalType":"uint8","name":"matrix","type":"uint8"},{"internalType":"uint8","name":"level","type":"uint8"}],"name":"buyNewLevel","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"info","outputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"id","type":"uint256"}],"name":"registration","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"userInfo","outputs":[{"internalType":"uint256","name":"referId","type":"uint256"},{"internalType":"uint256","name":"id","type":"uint256"},{"internalType":"uint256","name":"partnersCount","type":"uint256"},{"internalType":"uint256","name":"x3Income","type":"uint256"},{"internalType":"uint256","name":"x6Income","type":"uint256"},{"components":[{"internalType":"uint256","name":"currentReferrerId","type":"uint256"},{"internalType":"uint256[]","name":"referrals","type":"uint256[]"},{"internalType":"uint8[]","name":"relationships","type":"uint8[]"},{"internalType":"bool","name":"blocked","type":"bool"},{"internalType":"uint256","name":"reinvestCount","type":"uint256"},{"internalType":"uint256","name":"partnersCount","type":"uint256"},{"internalType":"bool","name":"isExtraDividends","type":"bool"},{"internalType":"bool","name":"active","type":"bool"}],"internalType":"struct SeroForsage.X3Info[]","name":"x3Matrix","type":"tuple[]"},{"components":[{"internalType":"uint256","name":"currentReferrerId","type":"uint256"},{"internalType":"uint256[]","name":"firstLevelReferrals","type":"uint256[]"},{"internalType":"uint8[]","name":"firstLevelRelationships","type":"uint8[]"},{"internalType":"uint256[]","name":"secondLevelReferrals","type":"uint256[]"},{"internalType":"uint8[]","name":"secondLevelRelationships","type":"uint8[]"},{"internalType":"bool","name":"blocked","type":"bool"},{"internalType":"uint256","name":"reinvestCount","type":"uint256"},{"internalType":"uint256","name":"partnersCount","type":"uint256"},{"internalType":"bool","name":"isExtraDividends","type":"bool"},{"internalType":"bool","name":"active","type":"bool"}],"internalType":"struct SeroForsage.X6Info[]","name":"x6Matrix","type":"tuple[]"}],"stateMutability":"view","type":"function"}];
 
-const contract = serojs.callContract(abiJson, "2SAF9hcFvW41NnvuGstgUEyzV72dxV1sE1fERwd8x2ratGh1eaXEgALdM2Hatu2DmkCeuo5QHEdVGKqTeuAXiXaBs");
+const contract = serojs.callContract(abiJson, "2SAF9hcFvW41NnvuGstgUEyzV72dxV1sE1fERwd8x2ratGh1eaXEgALdM2Hatu2DmkCeuo5QHEdVGKqTeuAXiXaB");
 
 var prices = new Map();
 prices.set(1, 100e18);
@@ -177,40 +177,16 @@ class Abi {
 
     userInfo(from, callback) {
         this.callMethod(contract, 'userInfo', from, [], function (ret) {
-            if (ret == "0x0") {
-                let x3Matrix = [];
-                let x6Matrix = [];
-                for (var i = 0; i < 12; i++) {
-                    x3Matrix.push({
-                        referrals: [], relationships: []
-                    });
-                    x6Matrix.push({
-                        firstLevelReferrals: [],
-                        secondLevelReferrals: []
-                    })
-                }
-                callback({
-                    id: 0,
-                    code: "",
-                    referCode: "",
-                    partnersCount: 0,
-                    x3Income: 0,
-                    x6Income: 0,
-                    x3Matrix: x3Matrix,
-                    x6Matrix: x6Matrix
-                });
-            } else {
-                callback({
-                    id: ret.id,
-                    code: encode(ret.id),
-                    referCode: encode(ret.referId),
-                    partnersCount: ret.partnersCount,
-                    x3Income: ret.x3Income,
-                    x6Income: ret.x6Income,
-                    x3Matrix: ret.x3Matrix,
-                    x6Matrix: ret.x6Matrix
-                });
-            }
+            callback({
+                id: ret.id,
+                code: encode(ret.id),
+                referCode: encode(ret.referId),
+                partnersCount: ret.partnersCount,
+                x3Income: ret.x3Income,
+                x6Income: ret.x6Income,
+                x3Matrix: ret.x3Matrix,
+                x6Matrix: ret.x6Matrix
+            });
         });
     }
 
