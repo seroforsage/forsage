@@ -147,7 +147,7 @@ class App extends Component {
                 relationships[index] = level.relationships[index];
             });
             var firstActive = false;
-            if ((index == 0 || this.state.userInfo.x3Matrix[index - 1].active) && !this.state.userInfo.x3Matrix[index].active) {
+            if (this.state.userInfo.id > 0 && (index == 0 || this.state.userInfo.x3Matrix[index - 1].active) && !this.state.userInfo.x3Matrix[index].active) {
                 firstActive = true;
             }
             let isExtraDividends = false;
@@ -436,7 +436,7 @@ class App extends Component {
                                         </div>
                                     </div>
                                     {
-                                        this.state.userInfo.id != 0 && <div className="block__body">
+                                        <div className="block__body">
                                             <div className="balance">
                                                 <div className="balance__list">
                                                     <div className="balance__item">
@@ -471,7 +471,6 @@ class App extends Component {
                                     }
                                 </div>
                                 {
-                                    this.state.userInfo.id != 0 &&
                                     <div className="aside__block block user-trigger__reflink ">
                                         <div className="block__body">
 

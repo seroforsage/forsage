@@ -177,17 +177,40 @@ class Abi {
 
     userInfo(from, callback) {
         this.callMethod(contract, 'userInfo', from, [], function (ret) {
-            console.log("userInfo", ret);
-            callback({
-                id: ret.id,
-                code: encode(ret.id),
-                referCode: encode(ret.referId),
-                partnersCount: ret.partnersCount,
-                x3Income: ret.x3Income,
-                x6Income: ret.x6Income,
-                x3Matrix: ret.x3Matrix,
-                x6Matrix: ret.x6Matrix
-            });
+            if (ret == "0x0") {
+                let x3Matrix = [];
+                let x6Matrix = [];
+                for (var i = 0; i < 12; i++) {
+                    x3Matrix.push({
+                        referrals: [], relationships: []
+                    });
+                    x6Matrix.push({
+                        firstLevelReferrals: [],
+                        secondLevelReferrals: []
+                    })
+                }
+                callback({
+                    id: 0,
+                    code: "",
+                    referCode: "",
+                    partnersCount: 0,
+                    x3Income: 0,
+                    x6Income: 0,
+                    x3Matrix: x3Matrix,
+                    x6Matrix: x6Matrix
+                });
+            } else {
+                callback({
+                    id: ret.id,
+                    code: encode(ret.id),
+                    referCode: encode(ret.referId),
+                    partnersCount: ret.partnersCount,
+                    x3Income: ret.x3Income,
+                    x6Income: ret.x6Income,
+                    x3Matrix: ret.x3Matrix,
+                    x6Matrix: ret.x6Matrix
+                });
+            }
         });
     }
 
