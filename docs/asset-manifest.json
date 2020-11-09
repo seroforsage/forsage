@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "./static/css/main.26ab7609.chunk.css",
+    "main.js": "./static/js/main.7e2eb36a.chunk.js",
+    "runtime-main.js": "./static/js/runtime-main.cd3eeedf.js",
+    "static/css/2.e76301bb.chunk.css": "./static/css/2.e76301bb.chunk.css",
+    "static/js/2.88d95a7b.chunk.js": "./static/js/2.88d95a7b.chunk.js",
+    "static/js/3.64dd9865.chunk.js": "./static/js/3.64dd9865.chunk.js",
+    "index.html": "./index.html",
+    "static/js/2.88d95a7b.chunk.js.LICENSE.txt": "./static/js/2.88d95a7b.chunk.js.LICENSE.txt",
+    "static/media/style.css": "./static/media/x-white.b5542f6a.svg",
+    "static/media/logo-forsage.063dc2b5.svg": "./static/media/logo-forsage.063dc2b5.svg",
+    "static/media/logo-x3.afcfaeaf.svg": "./static/media/logo-x3.afcfaeaf.svg",
+    "static/media/logo-x4.edae83a5.svg": "./static/media/logo-x4.edae83a5.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cd3eeedf.js",
+    "static/css/2.e76301bb.chunk.css",
+    "static/js/2.88d95a7b.chunk.js",
+    "static/css/main.26ab7609.chunk.css",
+    "static/js/main.7e2eb36a.chunk.js"
+  ]
+}

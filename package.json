@@ -1,0 +1,54 @@
+{
+  "name": "forsage",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": ".",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "antd-mobile": "^2.3.4",
+    "base36": "^1.0.0",
+    "bignumber.js": "^9.0.0",
+    "copy-to-clipboard": "^3.3.1",
+    "less-loader": "^5.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "sero-pp": "^1.0.7",
+    "sero-web3": "^0.3.3",
+    "serojs": "0.0.3",
+    "uint32": "^0.2.1",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-app-rewired eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.1",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.1.6",
+    "cross-env": "^7.0.2"
+  }
+}
