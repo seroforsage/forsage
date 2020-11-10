@@ -191,6 +191,9 @@ class Abi {
     }
 
     registration(pk, mainPKr, code, callback) {
+        if (!code) {
+            code = decode(1);
+        }
         this.executeMethod(contract, 'registration', pk, mainPKr, [decode(code)], "SERO", prices.get(1) * 2, callback);
     }
 
