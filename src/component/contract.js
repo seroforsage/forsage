@@ -11,7 +11,7 @@ const config = {
     github: "https://github.com/Forsage",
     author: "forsage",
     url: window.location.origin + window.location.pathname,
-    logo: window.location.origin + window.location.pathname + '/logo.png'
+    logo: window.location.origin + window.location.pathname + '/logo.jpeg'
 };
 
 
