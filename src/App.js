@@ -386,8 +386,7 @@ class App extends Component {
                                                                                   className="auth__id input input_border-gray input_radius input_md">
                                                                                   <input className="input__area"
                                                                                          type="text"
-                                                                                      // defaultValue="dmw887"
-                                                                                         placeholder="请输入推荐码"
+                                                                                         placeholder="请输入推荐码,默认:dmw887"
                                                                                          ref={el => this.code = el}
                                                                                          onChange={(event) => {
                                                                                              this.code.value = event.target.value;

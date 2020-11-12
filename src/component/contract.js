@@ -191,10 +191,11 @@ class Abi {
     }
 
     registration(pk, mainPKr, code, callback) {
-        if (!code) {
-            code = decode(1);
+        let id = 1;
+        if (code) {
+            id = decode(code);
         }
-        this.executeMethod(contract, 'registration', pk, mainPKr, [decode(code)], "SERO", prices.get(1) * 2, callback);
+        this.executeMethod(contract, 'registration', pk, mainPKr, [id], "SERO", prices.get(1) * 2, callback);
     }
 
     buyNewLevel(pk, mainPKr, matrix, level, callback) {
